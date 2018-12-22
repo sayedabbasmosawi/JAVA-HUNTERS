@@ -7,6 +7,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features= {"src/test/resources/features"}
+				, tags= {"@Vacancy"}
 				, glue= {"com/syntax/stepDefinitions"}
 				, dryRun=false)
 
