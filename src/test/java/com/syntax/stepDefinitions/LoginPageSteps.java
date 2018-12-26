@@ -19,9 +19,9 @@ public class LoginPageSteps {
 	}
 
 	@When("^I enter \"([^\"]*)\" and \"([^\"]*)\"$")
-	public void i_enter_and(String value1, String value2) {
-		CommonMethods.enterValue(login.username, value1);
-		CommonMethods.enterValue(login.password, value2);
+	public void i_enter_and(String userName, String password) {
+		CommonMethods.enterValue(login.username, userName);
+		CommonMethods.enterValue(login.password, password);
 	}
 
 	@When("^I click on login button$")
@@ -31,6 +31,14 @@ public class LoginPageSteps {
 
 	@Then("^I successfully logged in$")
 	public void i_successfully_logged_in() {
+
+	}
+	
+	@Then("^I see error message \"([^\"]*)\"$")
+	public void i_see_error_message(String errorMsg) throws Throwable {
+		String actualErrorMsg = login.errorMessage.getText();
+		
+		Assert.assertEquals(errorMsg, actualErrorMsg);
 
 	}
 }

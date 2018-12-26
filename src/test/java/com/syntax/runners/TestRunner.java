@@ -7,10 +7,15 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features= {"src/test/resources/features"}
-				, tags= {"@Vacancy"}
 				, glue= {"com/syntax/stepDefinitions"}
-				, dryRun=false)
-
+				,plugin= { "pretty"
+				, "html:src/target/cucumber-defualt-reports"
+				,"json:target/cucumber.json"
+				}
+				,tags= {"@invalid"}
+				,dryRun=false
+				,monochrome=true
+				)
 public class TestRunner {
 
 }
